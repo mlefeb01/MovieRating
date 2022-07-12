@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textbox {
+    max-width: 50%;
+    min-width: 25%;
+    max-height: 100px;
+    min-height: 50px;
+}
+
+.button {
+    width: 20%;
+    height: 25px;
+}

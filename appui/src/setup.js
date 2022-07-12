@@ -1,0 +1,9 @@
+import Web3 from 'web3';
+
+const web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+let ratingABI=[{"inputs":[{"internalType":"bytes32[]","name":"names","type":"bytes32[]"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"from","type":"address"},{"indexed":false,"internalType":"bytes32","name":"movieName","type":"bytes32"},{"indexed":false,"internalType":"uint256","name":"index","type":"uint256"}],"name":"AddMovie","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"from","type":"address"},{"indexed":false,"internalType":"uint256","name":"index","type":"uint256"}],"name":"AddVote","type":"event"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"movies","outputs":[{"internalType":"bytes32","name":"name","type":"bytes32"},{"internalType":"uint256","name":"votes","type":"uint256"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[],"name":"numMovies","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[{"internalType":"uint256","name":"index","type":"uint256"}],"name":"totalVotesFor","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[{"internalType":"uint256","name":"index","type":"uint256"}],"name":"voteForMovie","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes32","name":"movie","type":"bytes32"}],"name":"addMovie","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+let ratingAddress='0xf95097E4B88D6A09D5Ff67Eb463d6A0c62B72544';
+web3.eth.defaultAccount = web3.eth.accounts[0]
+
+const ratingContract=web3.eth.contract(ratingABI).at(ratingAddress);
+export { web3, ratingContract};
